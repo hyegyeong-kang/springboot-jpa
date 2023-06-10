@@ -1,7 +1,9 @@
 package com.example.springbootpractice.repository;
 
+import com.example.springbootpractice.entity.Item;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
