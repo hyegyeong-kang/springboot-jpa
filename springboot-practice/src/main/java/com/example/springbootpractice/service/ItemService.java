@@ -1,10 +1,14 @@
 package com.example.springbootpractice.service;
 
+import com.example.springbootpractice.entity.Item;
+import com.example.springbootpractice.entity.ItemImg;
 import com.example.springbootpractice.repository.ItemImgRepository;
 import com.example.springbootpractice.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
