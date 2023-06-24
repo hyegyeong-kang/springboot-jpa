@@ -1,8 +1,10 @@
 package com.example.springbootpractice.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Table;
+import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 
