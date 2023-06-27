@@ -1,4 +1,4 @@
-package com.example.springbootpractice.exception;
+package com.example.springbootpractice.repository;
 
 import com.example.springbootpractice.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
