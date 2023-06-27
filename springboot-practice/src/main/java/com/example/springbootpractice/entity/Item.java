@@ -1,17 +1,13 @@
 package com.example.springbootpractice.entity;
 
-
-
 import com.example.springbootpractice.constant.ItemSellStatus;
 import com.example.springbootpractice.dto.ItemFormDTO;
 import com.example.springbootpractice.exception.OutOfStockException;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,7 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "item")
 @Getter

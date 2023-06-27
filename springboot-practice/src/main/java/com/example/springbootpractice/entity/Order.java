@@ -1,12 +1,10 @@
 package com.example.springbootpractice.entity;
 
 import com.example.springbootpractice.constant.OrderStatus;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
