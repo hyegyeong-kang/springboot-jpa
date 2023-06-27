@@ -1,5 +1,8 @@
 package com.example.springbootpractice.repository;
 
+import com.example.springbootpractice.dto.CartDetailDTO;
+import com.example.springbootpractice.entity.CartItem;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
@@ -14,6 +17,6 @@ public interface CartItemRepository extends JpaRepository<CartItem, Long> {
             "and im.item.id = ci.item.id " +
             "and im.repimgYn = 'Y' " +
             "order by ci.regTime desc", nativeQuery = true)
-    List<CartDetailDto> findCartDetailDtoList(Long cartId);
+    List<CartDetailDTO> findCartDetailDtoList(Long cartId);
 
 }
