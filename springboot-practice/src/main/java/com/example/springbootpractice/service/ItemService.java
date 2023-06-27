@@ -2,15 +2,21 @@ package com.example.springbootpractice.service;
 
 import com.example.springbootpractice.dto.ItemFormDTO;
 import com.example.springbootpractice.dto.ItemImgDTO;
+import com.example.springbootpractice.dto.ItemSearchDTO;
+import com.example.springbootpractice.dto.MainItemDTO;
 import com.example.springbootpractice.entity.Item;
 import com.example.springbootpractice.entity.ItemImg;
 import com.example.springbootpractice.repository.ItemImgRepository;
 import com.example.springbootpractice.repository.ItemRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -82,7 +88,7 @@ public class ItemService {
     }
 
     @Transactional(readOnly = true)
-    public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
+    public Page<MainItemDTO> getMainItemPage(ItemSearchDTO itemSearchDto, Pageable pageable){
         return itemRepository.getMainItemPage(itemSearchDto, pageable);
     }
 }

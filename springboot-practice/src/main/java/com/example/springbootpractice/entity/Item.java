@@ -2,6 +2,7 @@ package com.example.springbootpractice.entity;
 
 
 
+import com.example.springbootpractice.constant.ItemSellStatus;
 import com.example.springbootpractice.dto.ItemFormDTO;
 import com.example.springbootpractice.exception.OutOfStockException;
 import jakarta.persistence.*;

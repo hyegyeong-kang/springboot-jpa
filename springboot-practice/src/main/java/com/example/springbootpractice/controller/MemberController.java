@@ -4,6 +4,7 @@ import com.example.springbootpractice.dto.MemberFormDto;
 import com.example.springbootpractice.entity.Member;
 import com.example.springbootpractice.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

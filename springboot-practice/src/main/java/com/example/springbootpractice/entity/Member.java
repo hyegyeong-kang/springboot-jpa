@@ -9,7 +9,6 @@ import org.hibernate.annotations.Table;
 import org.springframework.data.annotation.Id;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

@@ -1,8 +1,10 @@
 package com.example.springbootpractice.dto;
 
+import com.example.springbootpractice.constant.ItemSellStatus;
 import com.example.springbootpractice.entity.Item;
 import lombok.Getter;
 import lombok.Setter;
+import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -29,7 +31,7 @@ public class ItemFormDTO {
 
     private ItemSellStatus itemSellStatus;
 
-    private List<ItemImgDto> itemImgDtoList = new ArrayList<>();
+    private List<ItemImgDTO> itemImgDtoList = new ArrayList<>();
 
     private List<Long> itemImgIds = new ArrayList<>();
 
@@ -39,8 +41,8 @@ public class ItemFormDTO {
         return modelMapper.map(this, Item.class);
     }
 
-    public static ItemFormDto of(Item item){
-        return modelMapper.map(item,ItemFormDto.class);
+    public static ItemFormDTO of(Item item){
+        return modelMapper.map(item,ItemFormDTO.class);
     }
 
 }
