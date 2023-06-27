@@ -1,7 +1,7 @@
 package com.example.springbootpractice.entity;
 
 import com.example.springbootpractice.constant.Role;
-import com.example.springbootpractice.dto.MemberFormDto;
+import com.example.springbootpractice.dto.MemberFormDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -34,7 +34,7 @@ public class Member extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder){
+    public static Member createMember(MemberFormDTO memberFormDto, PasswordEncoder passwordEncoder){
         Member member = new Member();
         member.setName(memberFormDto.getName());
         member.setEmail(memberFormDto.getEmail());

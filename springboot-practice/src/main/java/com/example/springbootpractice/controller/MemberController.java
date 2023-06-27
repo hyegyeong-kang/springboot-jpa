@@ -1,6 +1,6 @@
 package com.example.springbootpractice.controller;
 
-import com.example.springbootpractice.dto.MemberFormDto;
+import com.example.springbootpractice.dto.MemberFormDTO;
 import com.example.springbootpractice.entity.Member;
 import com.example.springbootpractice.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -24,12 +24,12 @@ public class MemberController {
 
     @GetMapping(value = "/new")
     public String memberForm(Model model){
-        model.addAttribute("memberFormDto", new MemberFormDto());
+        model.addAttribute("memberFormDto", new MemberFormDTO());
         return "member/memberForm";
     }
 
     @PostMapping(value = "/new")
-    public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model){
+    public String newMember(@Valid MemberFormDTO memberFormDto, BindingResult bindingResult, Model model){
 
         if(bindingResult.hasErrors()){
             return "member/memberForm";
