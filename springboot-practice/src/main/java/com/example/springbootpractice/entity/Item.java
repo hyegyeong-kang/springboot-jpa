@@ -11,6 +11,14 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Lob;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 @Entity
 @Table(name = "item")

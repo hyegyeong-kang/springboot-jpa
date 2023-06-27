@@ -1,8 +1,7 @@
 package com.example.springbootpractice.entity;
 
-import com.shop.constant.Role;
-import com.shop.dto.MemberFormDto;
-import jakarta.persistence.*;
+import com.example.springbootpractice.constant.Role;
+import com.example.springbootpractice.dto.MemberFormDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,6 +10,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 @Table(name="member")

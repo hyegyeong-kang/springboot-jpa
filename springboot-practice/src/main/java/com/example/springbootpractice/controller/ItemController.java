@@ -4,8 +4,13 @@ import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 import com.example.springbootpractice.dto.ItemFormDTO;
+import com.example.springbootpractice.dto.ItemSearchDTO;
+import com.example.springbootpractice.entity.Item;
 import com.example.springbootpractice.service.ItemService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -90,7 +95,7 @@ public class ItemController {
     }
 
     @GetMapping(value = {"/admin/items", "/admin/items/{page}"})
-    public String itemManage(ItemSearchDto itemSearchDto, @PathVariable("page") Optional<Integer> page, Model model){
+    public String itemManage(ItemSearchDTO itemSearchDto, @PathVariable("page") Optional<Integer> page, Model model){
         Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
         Page<Item> items = itemService.getAdminItemPage(itemSearchDto, pageable);
         model.addAttribute("items", items);
