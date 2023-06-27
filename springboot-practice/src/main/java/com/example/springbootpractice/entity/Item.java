@@ -2,9 +2,9 @@ package com.example.springbootpractice.entity;
 
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.example.springbootpractice.dto.ItemFormDTO;
+import com.example.springbootpractice.exception.OutOfStockException;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -40,7 +40,7 @@ public class Item extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus; //상품 판매 상태
 
-    public void updateItem(ItemFormDto itemFormDto){
+    public void updateItem(ItemFormDTO itemFormDto){
         this.itemNm = itemFormDto.getItemNm();
         this.price = itemFormDto.getPrice();
         this.stockNumber = itemFormDto.getStockNumber();

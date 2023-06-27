@@ -2,10 +2,12 @@ package com.example.springbootpractice.entity;
 
 import com.shop.constant.Role;
 import com.shop.dto.MemberFormDto;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Table;
+import org.springframework.data.annotation.Id;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;

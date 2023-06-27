@@ -1,5 +1,7 @@
 package com.example.springbootpractice.controller;
 
+import com.example.springbootpractice.dto.MemberFormDto;
+import com.example.springbootpractice.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

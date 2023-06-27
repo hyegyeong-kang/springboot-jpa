@@ -1,6 +1,8 @@
 package com.example.springbootpractice.controller;
 
 import com.example.springbootpractice.dto.CartDetailDTO;
+import com.example.springbootpractice.dto.CartItemDTO;
+import com.example.springbootpractice.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +26,7 @@ public class CartController {
     private final CartService cartService;
 
     @PostMapping(value = "/cart")
-    public @ResponseBody ResponseEntity order(@RequestBody @Valid CartItemDto cartItemDto
+    public @ResponseBody ResponseEntity order(@RequestBody @Valid CartItemDTO cartItemDTO
             , BindingResult bindingResult, Principal principal) {
 
         if(bindingResult.hasErrors()){
@@ -39,7 +41,7 @@ public class CartController {
         Long cartItemid;
 
         try {
-            cartItemid = cartService.addCart(cartItemDto, email);
+            cartItemid = cartService.addCart(cartItemDTO, email);
         } catch (Exception e){
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

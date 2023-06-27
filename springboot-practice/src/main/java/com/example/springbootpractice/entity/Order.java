@@ -1,7 +1,10 @@
 package com.example.springbootpractice.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -14,7 +17,8 @@ import java.util.List;
 @Setter
 public class Order extends BaseEntity{
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "order_id")
     private Long id;
 

@@ -1,5 +1,7 @@
 package com.example.springbootpractice.service;
 
+import com.example.springbootpractice.dto.ItemFormDTO;
+import com.example.springbootpractice.dto.ItemImgDTO;
 import com.example.springbootpractice.entity.Item;
 import com.example.springbootpractice.entity.ItemImg;
 import com.example.springbootpractice.repository.ItemImgRepository;
@@ -7,6 +9,7 @@ import com.example.springbootpractice.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -19,7 +22,7 @@ public class ItemService {
     private final ItemImgService itemImgService;
     private final ItemImgRepository itemImgRepository;
 
-    public Long saveItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
+    public Long saveItem(ItemFormDTO itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
 
         //상품 등록
         Item item = itemFormDto.createItem();
@@ -42,22 +45,22 @@ public class ItemService {
     }
 
     @Transactional(readOnly = true)
-    public ItemFormDto getItemDtl(Long itemId){
+    public ItemFormDTO getItemDtl(Long itemId){
         List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
-        List<ItemImgDto> itemImgDtoList = new ArrayList<>();
+        List<ItemImgDTO> itemImgDtoList = new ArrayList<>();
         for (ItemImg itemImg : itemImgList) {
-            ItemImgDto itemImgDto = ItemImgDto.of(itemImg);
+            ItemImgDTO itemImgDto = ItemImgDTO.of(itemImg);
             itemImgDtoList.add(itemImgDto);
         }
 
         Item item = itemRepository.findById(itemId)
                 .orElseThrow(EntityNotFoundException::new);
-        ItemFormDto itemFormDto = ItemFormDto.of(item);
+        ItemFormDTO itemFormDto = ItemFormDTO.of(item);
         itemFormDto.setItemImgDtoList(itemImgDtoList);
         return itemFormDto;
     }
 
-    public Long updateItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
+    public Long updateItem(ItemFormDTO itemFormDto, List<MultipartFile> itemImgFileList) throws Exception{
         //상품 수정
         Item item = itemRepository.findById(itemFormDto.getId())
                 .orElseThrow(EntityNotFoundException::new);
@@ -74,7 +77,7 @@ public class ItemService {
     }
 
     @Transactional(readOnly = true)
-    public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
+    public Page<Item> getAdminItemPage(ItemSearchDTO itemSearchDto, Pageable pageable){
         return itemRepository.getAdminItemPage(itemSearchDto, pageable);
     }
 

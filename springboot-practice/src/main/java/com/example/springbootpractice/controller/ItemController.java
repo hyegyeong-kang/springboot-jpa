@@ -3,6 +3,7 @@ package com.example.springbootpractice.controller;
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
+import com.example.springbootpractice.dto.ItemFormDTO;
 import com.example.springbootpractice.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -24,12 +25,12 @@ public class ItemController {
 
     @GetMapping(value = "/admin/item/new")
     public String itemForm(Model model){
-        model.addAttribute("itemFormDto", new ItemFormDto());
+        model.addAttribute("itemFormDto", new ItemFormDTO());
         return "/item/itemForm";
     }
 
     @PostMapping(value = "/admin/item/new")
-    public String itemNew(@Valid ItemFormDto itemFormDto, BindingResult bindingResult,
+    public String itemNew(@Valid ItemFormDTO itemFormDto, BindingResult bindingResult,
                           Model model, @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList) {
 
         if (bindingResult.hasErrors()) {
@@ -55,11 +56,11 @@ public class ItemController {
     public String itemDtl(@PathVariable("itemId") Long itemId, Model model){
 
         try {
-            ItemFormDto itemFormDto = itemService.getItemDtl(itemId);
+            ItemFormDTO itemFormDto = itemService.getItemDtl(itemId);
             model.addAttribute("itemFormDto", itemFormDto);
         } catch(EntityNotFoundException e){
             model.addAttribute("errorMessage", "존재하지 않는 상품 입니다.");
-            model.addAttribute("itemFormDto", new ItemFormDto());
+            model.addAttribute("itemFormDto", new ItemFormDTO());
             return "item/itemForm";
         }
 
@@ -67,7 +68,7 @@ public class ItemController {
     }
 
     @PostMapping(value = "/admin/item/{itemId}")
-    public String itemUpdate(@Valid ItemFormDto itemFormDto, BindingResult bindingResult,
+    public String itemUpdate(@Valid ItemFormDTO itemFormDto, BindingResult bindingResult,
                              @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Model model){
         if(bindingResult.hasErrors()){
             return "item/itemForm";
@@ -100,7 +101,7 @@ public class ItemController {
 
     @GetMapping(value = "/item/{itemId}")
     public String itemDtl(Model model, @PathVariable("itemId") Long itemId) {
-        ItemFormDto itemFormDto = itemService.getItemDtl(itemId);
+        ItemFormDTO itemFormDto = itemService.getItemDtl(itemId);
         model.addAttribute("item", itemFormDto);
         return "item/itemDtl";
     }
